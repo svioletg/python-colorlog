@@ -102,4 +102,4 @@ for code in range(256):
 
 def parse_colors(string: str) -> str:
     """Return escape codes from a color sequence string."""
-    return "".join(escape_codes[n] for n in string.split(",") if n)
+    return "".join(n if n.startswith('\033[') else escape_codes[n] for n in string.split(",") if n)
